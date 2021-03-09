@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <assert.h>
 
 int Bonus_drink(int buy_drink) {
     int total = 0;
@@ -24,10 +25,16 @@ int Bonus_drink(int buy_drink) {
 
 //単体テスト
 int main(void) {
-    printf("購入した本数が0本の場合の合計本数は%d\n", Bonus_drink(0));
-    printf("購入した本数が1本の場合の合計本数は%d\n", Bonus_drink(1));
-    printf("購入した本数が3本の場合の合計本数は%d\n", Bonus_drink(3));
-    printf("購入した本数が11本の場合の合計本数は%d\n", Bonus_drink(11));
+
+    assert(Bonus_drink(0)==0);
+    assert(Bonus_drink(1) == 1);
+    assert(Bonus_drink(3) == 4);
+    assert(Bonus_drink(11) == 16);
+    assert(Bonus_drink(100) == 149);
+    //printf("購入した本数が0本の場合の合計本数は%d\n", Bonus_drink(0));
+    //printf("購入した本数が1本の場合の合計本数は%d\n", Bonus_drink(1));
+    //printf("購入した本数が3本の場合の合計本数は%d\n", Bonus_drink(3));
+    //printf("購入した本数が11本の場合の合計本数は%d\n", Bonus_drink(11));
     printf("購入した本数が100本の場合の合計本数は%d\n", Bonus_drink(100));
     return 0;
 }
